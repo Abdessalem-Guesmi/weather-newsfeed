@@ -1,0 +1,13 @@
+page-meteo {}
+
+#imgwrap {
+    min-width: 200px;
+    min-height: 150px;
+    background-color: blue;
+    text-align: center!important;
+    img {
+        border: 0;
+        max-width: 140px;
+        border-radius: 50%;
+    }
+}

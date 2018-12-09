@@ -1,0 +1,32 @@
+<!--
+  Generated template for the DetailmeteoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>detailmeteo</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+        <ion-avatar item-start>
+            <img src="{{url1}}/{{meteo?.city.country}}.png">
+        </ion-avatar>
+    </ion-item>
+    <ion-avatar item-start>
+        <img src="{{url}}/{{meteo?.list.weather[0].main}}.png">
+    </ion-avatar>
+    <ion-card>
+        <h2>Date: <strong>{{meteo.list.dt*1000|date:'dd-MM-yyyy HH:mm'}}</strong></h2>
+        <h2>Temperature_min:<strong>{{meteo?.list?.main.temp_min-273.15| number:'1.0-0'}} °C</strong></h2>
+        <h2>Temperature_max:<strong>{{meteo?.list.main.temp_max-273.15| number:'1.0-0'}} °C</strong></h2>
+        <h2>Himdité:<strong>{{meteo?.list.main.humidity}} %</strong></h2>
+    </ion-card>
+</ion-content>

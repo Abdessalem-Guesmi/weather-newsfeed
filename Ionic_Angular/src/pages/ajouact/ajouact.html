@@ -1,0 +1,61 @@
+<!--
+  Generated template for the AjouactPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="danger">
+        <ion-title>ajouact</ion-title>
+        <button ion-button="" menuToggle="">
+  <ion-icon name="menu"></ion-icon>
+</button>
+
+
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div *ngIf="mode==0">
+
+        <ion-item>
+            <ion-label floating>Titre: </ion-label>
+            <ion-input type="text" [(ngModel)]="act.titre">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+
+            <ion-input type="text" [(ngModel)]="act.nomAuteur" placeholder="NomAuteur" floating>
+            </ion-input>
+        </ion-item>
+        <ion-item>
+
+            <ion-input type="text" [(ngModel)]="act.contenu" placeholder="contenu">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Date_Actualite: </ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="act.dateact">
+            </ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Foto: </ion-label>
+            <ion-input type="text" [(ngModel)]="act.photo">
+            </ion-input>
+        </ion-item>
+        <button ion-button block="" color="secondary" [disabled]="!act.titre||!act.photo" (click)="ajout()">ajout Actualite</button>
+    </div>
+    <div *ngIf="mode==1">
+        <h1>Titre:</h1><strong>{{act.titre}}</strong>
+        <h1>NomAuteur:</h1>{{act.nomAuteur}}
+        <h1>Contenu:</h1>{{act.contenu}}
+        <h1>Date_Actualite:</h1>{{act.dateact}
+        <h1>Foto:</h1>{{act.photo}}
+    </div>
+</ion-content>
+<ion-note>
+    bonjour
+</ion-note>

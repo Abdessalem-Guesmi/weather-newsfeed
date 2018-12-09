@@ -1,0 +1,82 @@
+<!--
+  Generated template for the MeteoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+
+    <ion-navbar color="success">
+        <div>
+            <ion-title>Meteo
+                <div *ngIf="mode">
+
+                    <ion-avatar item-start>
+                        <img src="{{url1}}/{{meteos?.city.country}}.png">
+                    </ion-avatar>
+
+                </div>
+            </ion-title>
+        </div>
+
+        <button ion-button="" menuToggle="">
+        <ion-icon name="menu">
+        
+
+        </ion-icon>
+    </button>
+
+    </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+
+    <form #f="ngForm" (ngSubmit)="getMeteo(f.value)">
+        <ion-item>
+            <ion-label>Ville: </ion-label>
+            <ion-input type="text" name="ville" ngModel required="" ng-minlength="3">
+            </ion-input>
+        </ion-item>
+        <button ion-button="" block="" color="danger" type="submit" [disabled]="!f.valid">Meteo_Info</button>
+
+    </form>
+
+    <ion-list>
+
+
+        <ion-item *ngFor="let m of meteo?.list">
+
+            <ion-avatar item-start>
+                <img src="{{url}}/{{m.weather[0].main}}.png" (click)="back(mt)">
+            </ion-avatar>
+
+
+            <ion-card>
+                <div *ngIf="mode">
+                    <button ion-button="" color="secondary" block="">{{m.weather[0].main}}</button>
+                </div>
+                <h2>Date: <strong>{{m.dt*1000|date:'dd-MM-yyyy HH:mm'}}</strong></h2>
+                <h2>Temperature_min:<strong>{{m.main.temp_min-273.15| number:'1.0-0'}} °C</strong></h2>
+                <h2>Temperature_max:<strong>{{m.main.temp_max-273.15| number:'1.0-0'}} °C</strong></h2>
+                <h2>Himdité:<strong>{{m.main.humidity}} %</strong></h2>
+            </ion-card>
+        </ion-item>
+
+    </ion-list>
+</ion-content>
+<div *ngIf="mode">
+
+    <ion-footer>
+        <ion-toolbar color="gris">
+            <button ion-button icon-only (click)="newsearch()" color="primary">
+            <ion-icon name="backspace" ></ion-icon>
+            </button>
+        </ion-toolbar>
+    </ion-footer>
+</div>
